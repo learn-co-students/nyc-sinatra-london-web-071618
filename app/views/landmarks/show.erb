@@ -2,9 +2,14 @@
   <tr>
     <th>Name</th>
     <th>Year Completed</th>
+    <th>Figure</th>
   </tr>
   <tr>
     <td><%= @landmark.name %></td>
     <td><%= @landmark.year_completed %></td>
+    <td><%= @landmark.figure.name %></td>
   </tr>
 <table>
+
+  <a href='/landmarks'>All Landmarks</a>
+  <a href='/landmarks/<%= @landmark.id %>/edit'>Edit this landmark!</a>

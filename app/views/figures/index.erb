@@ -1,0 +1,9 @@
+<h1>All Figures</h1>
+
+<a href='/figures/new'>New Figure</a>
+
+<ul>
+  <% @figures.each do |figure| %>
+  <li><a href="/figures/<%= figure.id %>"><%= figure.name %></a></li>
+  <% end %>
+</ul>
