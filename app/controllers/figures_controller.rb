@@ -2,7 +2,7 @@ class FiguresController < ApplicationController
 
   get '/figures' do
     @figures = Figure.all
-    erb :'figures/index'
+    erb :'/figures/index'
   end
 
   get '/figures/new' do
@@ -18,9 +18,16 @@ class FiguresController < ApplicationController
 
   post '/figures' do
     figure = Figure.create(params[:figure])
+    # Figure.create(name: params[:figure][:name], title_ids: params[:figure][:title_ids], landmark_ids: params[:figure][:landmark_ids])
     title = Title.create(params[:title])
+    FigureTitle.create(figure_id: figure.id, title_id: title.id)
+
     landmark = Landmark.create(params[:landmark])
-    redirect '/figures/#{figure.id}'
+    landmark.figure_id = figure.id
+    landmark.save
+    # figure.titles << title
+    # figure.landmarks << landmark
+    redirect "/figures/#{figure.id}"
   end
 
   get '/figures/:id/edit' do
@@ -33,7 +40,13 @@ class FiguresController < ApplicationController
   patch '/figures/:id' do
     figure = Figure.find(params[:id])
     figure.update(params[:figure])
-    redirect '/figures/#{figure.id}'
+
+    landmark.figure_id = figure.id
+    landmark.save
+    FigureTitle.create(figure: figure, title: title)
+
+    redirect "/figures/#{figure.id}"
+
   end
 
 
