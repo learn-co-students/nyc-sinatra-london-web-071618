@@ -1,0 +1,35 @@
+<form action="/landmarks/<%= @landmark.id %>" method="post">
+  <input type="hidden" name="_method" value="put" />
+
+
+
+<h2>Edit Landmark</h2>
+
+
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id=name name="landmark[name]" value="<%= @landmark.name %>"/>
+    <label for="year_completed">Year:</label>
+    <input type="text" id=year_completed name="landmark[year_completed]" value="<%= @landmark.year_completed %>">
+  </div>
+
+<input type="submit" value="Edit Landmark" />
+</form>
+
+<!--
+ it "allows you to edit a single landmark" do
+    @original_landmark = Landmark.first
+
+    visit "/landmarks/#{@original_landmark.id}/edit"
+    fill_in :name, with: "BQE!!!!"
+    fill_in :year_completed, with: 9999
+    click_button "Edit Landmark"
+
+    expect(page.body).to include("BQE!!!!")
+    expect(page.body).to include("9999")
+
+    @updated_landmark = Landmark.first
+    expect(page.current_path).to eq("/landmarks/#{@original_landmark.id}")
+    expect(@updated_landmark.name).to eq("BQE!!!!")
+    expect(@updated_landmark.year_completed.to_s).to eq("9999")
+  end -->
