@@ -1,0 +1,30 @@
+<form action="/landmarks/new" method="post">
+
+  <h2>Landmarks</h2>
+  <% @landmarks.each do |landmark| %>
+    <div>
+      <label for="title"><%= landmark.name %></label>
+      <input type="checkbox" id="landmark_<%= landmark.id %>" name="figure[landmark_ids][]" />
+    </div>
+  <%end%>
+
+  <h2>Create New Landmark:</h2>
+
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id=landmark_name name="landmark[name]"/>
+    <label for="year_completed">Year:</label>
+    <input type="text" id=landmark_year_completed name="landmark[year_completed]">
+    <input type="submit" id=submit value="Create New Landmark"/>
+  </div>
+</form>
+
+
+
+  <!-- it "allows you to create a new landmark" do
+    visit '/landmarks/new'
+    fill_in :landmark_name, :with => "Arc de Triomphe"
+    fill_in :landmark_year_completed, :with => 1806
+    click_button "Create New Landmark"
+    expect(Landmark.all.count).to eq(2)
+  end -->

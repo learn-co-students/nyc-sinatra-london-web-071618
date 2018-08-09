@@ -1,0 +1,45 @@
+<form action="/figures/new" method="post">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="figure_name" name="figure[name]" />
+  </div>
+
+  <h2>Titles</h2>
+  <% @titles.each do |title| %>
+    <div>
+      <label for="title"><%= title.name %></label>
+      <input type="checkbox" id="title_<%= title.id %>" name="figure[title_ids][]" value="<%= title.id %>" />
+    </div>
+  <%end%>
+
+  <h2>Create New Title:</h2>
+  <div>
+    <input type="text" id="new_title" name="title[name]"/>
+  </div>
+
+  <h2>Landmarks</h2>
+  <% @landmarks.each do |landmark| %>
+    <div>
+      <label for="title"><%= landmark.name %></label>
+      <input type="checkbox" id="landmark_<%= landmark.id %>" name="figure[landmark_ids][]" value="<%= landmark.id %>"/>
+    </div>
+  <%end%>
+
+  <h2>Create New Landmark:</h2>
+
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="new_landmark" name="landmark[name]"/>
+    <label for="year_completed">Year:</label>
+    <input type="text" id="landmark_year_completed" name="landmark[year_completed]">
+    <input type="submit" id="submit" value="Create New Figure"/>
+  </div>
+</form>
+
+
+<!-- expect(page.body).to include('<form')
+expect(page.body).to include('figure[name]')
+expect(page.body).to include('figure[title_ids][]')
+expect(page.body).to include('figure[landmark_ids][]')
+expect(page.body).to include('landmark[name]')
+expect(page.body).to include('title[name]') -->
