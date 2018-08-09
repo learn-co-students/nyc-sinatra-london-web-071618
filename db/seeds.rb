@@ -1,30 +1,19 @@
 landmarks_list = {
-    "Madison Square Guarden" => {
-      :year_completed => 1901
+    "BQE" => {
+      :year_completed => 1947,
+      :figure_id => 1
     },
-    "The big bull outside" => {
-      :year_completed => 1995
+    "Holland Tunnel" => {
+      :year_completed => 1927,
+      :figure_id => 5
     },
-    "Flatiron School" => {
-      :year_completed => 2014
+    "Wall Street Wall" => {
+      :year_completed => 1684,
+      :figure_id => 4
     },
-    "Museum Mile" => {
-      :year_completed => 1058
-    },
-    "Subway Station" => {
-      :year_completed => 2015
-    },
-    "Cast Iron" => {
-      :year_completed => 1951
-    },
-    "Shea Stadium" => {
-      :year_completed => 1964
-    },
-    "Flatiron Building" => {
-      :year_completed => 1902
-    },
-    "Brooklyn Bridge" => {
-      :year_completed => 1883
+    "Brooklyn Battery Tunnel" => {
+      :year_completed => 1973,
+      :figure_id => 10
     }
   }
 
@@ -38,15 +27,28 @@ landmarks_list.each do |name, landmark_hash|
 end
 
 figure_list = {
-    "Billy The Kid" => {
+    "Robert Moses" => {
     },
-    "Mark Zuckerberg" => {
+    "Al Smith" => {
     },
-    "Ada Lovelace" => {
+    "Theodore Roosevelt" => {
     },
-    "Linus Torvalds" => { 
+    "Peter Stuyvesant" => {
+    },
+    "Boss Tweed" => {
+    },
+    "Michael Bloomberg" => {
+    },
+    "Ed Koch" => {
+    },
+    "Fiorello Laguardia" => {
+    },
+    "Jimmy Walker" => {
+    },
+    "Belle Moskowitz" => {
     }
   }
+
 
 figure_list.each do |name, figure_hash|
   p = Figure.new
@@ -56,11 +58,13 @@ end
 
 
 title_list = {
-    "The Mayor" => {
+    "Mayor" => {
     },
-    "The Don" => {
+    "President" => {
     },
-    "Mr. President" => {
+    "Governor" => {
+    },
+    "NYC Parks Commissioner" => {
     }
   }
 
@@ -69,3 +73,9 @@ title_list.each do |name, figure_hash|
   p.name = name
   p.save
 end
+
+
+figure_title_list = [[1,3,2],[2,3,3],[3,2,3],[4,1,9],[5,4,1]]
+figure_title_list.each do |array|
+    FigureTitle.create(id: array[0], figure_id:array[1], title_id: array[2] )
+  end

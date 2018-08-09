@@ -1,0 +1,16 @@
+<h1>Create New Landmark</h1>
+  <form method="post" action="/landmarks/new">
+    <h3>Enter Landmark Info</h3>
+    <p>Name: <input type="text" name="landmark[name]" id="landmark_name"></p>
+    <p>Year: <input type="text" name="landmark[year_completed]" id="landmark_year_completed"></p>
+    <br>
+    <br>
+    <h3>Select Associated Figure:</h3>
+    <% @figures.each do |figure|%>
+        <input type="checkbox" name="landmark[figure_id]" value="<%=figure.id%>" id="figure_<%=figure.id%>"><%=figure.name%></input><br>
+    <%end%>
+    <br>
+    <p> Or, create your own associated figure: <input type="text" name="figure[name]" id="new_figure"></p>
+    <br>
+    <input type="submit" value="Create New Landmark">
+  </form>
