@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Year Completed</th>
+  </tr>
+  <tr>
+    <td><%= @figure.name %></td>
+    <td><%= @figure.landmarks.map {|landmark| landmark.name} %></td>
+    <td><%= @figure.landmarks.map {|landmark| landmark.year_completed} %></td>
+    <td><%= @figure.titles.map {|title| title.name} %></td>
+  </tr>
+<table>
